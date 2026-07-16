@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stapel-booking"
+version = "0.1.0"
+description = "Composite: bookable resources — calendar + listings"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["django", "stapel", "booking", "composite", "calendar"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+# A composite introduces NO versions of its own — it pins the same ranges the
+# STAPEL_LIBS registry / each member lib already uses, fixing the combination.
+dependencies = [
+    "stapel-core>=0.10,<0.11",
+    "stapel-calendar>=0.3,<0.4",
+    "stapel-listings>=0.3,<0.4",
+    "stapel-attributes>=0.3,<0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/usestapel/stapel-booking"
+Repository = "https://github.com/usestapel/stapel-booking"
+Documentation = "https://github.com/usestapel/stapel-booking#readme"
+Changelog = "https://github.com/usestapel/stapel-booking/blob/main/CHANGELOG.md"
+Issues = "https://github.com/usestapel/stapel-booking/issues"
+
+[project.optional-dependencies]
+all = []
+
+[tool.setuptools]
+package-dir = {"stapel_booking" = "."}
+packages = ["stapel_booking", "stapel_booking.tests"]
+
+[tool.setuptools.package-data]
+stapel_booking = ["py.typed"]
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+django_find_project = false
+addopts = "--tb=short -q --import-mode=importlib"
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*",
+    "*/conftest.py",
+    "*/migrations/*",
+]
