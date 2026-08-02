@@ -1,0 +1,10 @@
+# stapel-booking 0.1.2
+
+Composite preset for bookable resources (coworking, equipment rental, scheduled services): wires stapel-calendar (availability/slots) and stapel-listings (the resource) into one INSTALLED_APPS/urls/config bundle. Mounts no urls and writes no business logic of its own — the app slot is reserved for future cross-module glue (MODULE.md, preset.py).
+
+Contract: (no catalogued surface).
+Generated from docs/capabilities.json by `stapel-llms-txt` — do not edit; drift-gated by `make contract-check`.
+
+## Fits with — fleet dependencies
+- stapel-calendar (required) — composite member — carries the resource's availability/slots (preset.py INSTALLED_APPS/URL_INCLUDES)
+- stapel-listings (required) — composite member — the bookable resource is a Listing (preset.py INSTALLED_APPS/URL_INCLUDES)

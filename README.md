@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/usestapel/stapel-booking)](https://github.com/usestapel/stapel-booking/blob/main/LICENSE)
 [![status](https://img.shields.io/badge/status-unreleased-orange)](https://github.com/usestapel/stapel-booking)
+[![llms.txt](https://img.shields.io/badge/llms.txt-blue)](https://github.com/usestapel/stapel-booking/blob/main/docs/llms.txt)
 
 Не опубликовано на PyPI. Установка из исходников: `pip install git+https://github.com/usestapel/stapel-booking`
 Composite: bookable resources — calendar + listings.
