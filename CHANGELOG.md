@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.1.4] - 2026-08-02
+
+Packaging / contract only. Patch.
+
+### Added
+- `docs/llms.txt` — the fifth contract artifact — is now emitted, drift-gated
+  by `make contract`/`contract-check`, and badged in the README.
+  `docs/capabilities.json` remains hand-written (stapel-catalog sweep); these
+  targets manage only `docs/llms.txt` and never touch `capabilities.json`.
+  This composite preset has no axes/surface/extension_points at all, so the
+  generated llms.txt is just header + "Fits with" — thin but honest.
+- Canonical `ci.yml` with coverage, `codecov.yml`, Python 3.14 classifier,
+  badge canon (this repo has never published to PyPI, so badges are the
+  truncated license+status set with an honest install-from-source line).
+
+### Fixed
+- `docs/capabilities.json`'s hand-maintained `version` field had drifted to
+  `0.1.2` (missed the 0.1.3 bump); corrected to match `pyproject.toml`.
+  Content unchanged.
+- `docs/llms.txt`/`docs/capabilities.json`/`docs/flows.json`/`docs/errors.json`/
+  `CONFIG.MD` are now listed in `package-data` so they ship in the wheel.
+
 ## [0.1.2] - 2026-07-17
 
 Fleet follow-up to stapel-core 0.12.0 (legacy shim sweep). Also re-pins
