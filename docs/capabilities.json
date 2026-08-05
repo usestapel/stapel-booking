@@ -16,5 +16,6 @@
       "optional": false,
       "reason": "composite member — the bookable resource is a Listing (preset.py INSTALLED_APPS/URL_INCLUDES)"
     }
-  ]
+  ],
+  "surface": []
 }
