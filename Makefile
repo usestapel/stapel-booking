@@ -18,6 +18,12 @@
 # Second: docs/llms.txt, the fifth contract artifact (stapel_tools.llms_txt),
 # rendered straight from the capabilities.json the step above produces.
 #
+# README.md is the SIXTH artifact (tracker #257): assembled by
+# stapel_tools.readme from docs/readme.md (the human half — what this
+# composite is, how to think about it) plus everything emitted above. Badges,
+# version and doc links are generated, so a release cannot leave them behind.
+# Edit docs/readme.md; never README.md.
+#
 # PYTHON must have stapel-tools importable (the workspace venv, or
 # `pip install stapel-tools`).
 PYTHON ?= python3
@@ -27,6 +33,7 @@ PYTHON ?= python3
 contract:
 	$(PYTHON) -m stapel_tools.surface . --patch
 	$(PYTHON) -m stapel_tools.llms_txt .
+	$(PYTHON) -m stapel_tools.readme .
 
 # Drift gate: regenerate into a temp dir and diff against the committed docs/llms.txt.
 contract-check:
@@ -39,4 +46,5 @@ contract-check:
 		rm -rf "$$tmp"; exit 1; \
 	fi; \
 	rm -rf "$$tmp"; \
-	echo "contract-check: docs/llms.txt up to date"
+	$(PYTHON) -m stapel_tools.readme . --check
+	echo "contract-check: docs/llms.txt + README.md up to date"
