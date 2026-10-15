@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stapel-booking"
-version = "0.1.4"
+version = "0.1.5"
 description = "Composite: bookable resources — calendar + listings"
 readme = "README.md"
 license = { text = "MIT" }
@@ -26,9 +26,9 @@ classifiers = [
 # STAPEL_LIBS registry / each member lib already uses, fixing the combination.
 dependencies = [
     "stapel-core>=0.10,<1.0",
-    "stapel-calendar>=0.3,<0.4",
-    "stapel-listings>=0.3,<0.4",
-    "stapel-attributes>=0.3,<0.5",
+    "stapel-calendar>=0.8,<1.0",
+    "stapel-listings>=0.23,<1.0",
+    "stapel-attributes>=0.9,<1.0",
 ]
 
 [project.urls]
