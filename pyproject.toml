@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stapel-booking"
-version = "0.1.5"
+version = "0.1.6"
 description = "Composite: bookable resources — calendar + listings"
 readme = "README.md"
 license = { text = "MIT" }
@@ -28,6 +28,9 @@ dependencies = [
     "stapel-core>=0.10,<1.0",
     "stapel-calendar>=0.8,<1.0",
     "stapel-listings>=0.23,<1.0",
+    # A preset member since 0.1.6: listings' publish calls the
+    # `categories.features` Function this module provides.
+    "stapel-categories>=0.25,<1.0",
     "stapel-attributes>=0.9,<1.0",
 ]
 

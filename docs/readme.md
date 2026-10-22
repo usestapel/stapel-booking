@@ -19,6 +19,7 @@ from stapel_booking import preset
 INSTALLED_APPS = [
     # ... django/stapel-core baseline (incl. stapel_core.django.projections)
     "stapel_calendar",
+    "stapel_categories",
     "stapel_listings",
     "stapel_booking",
 ]
@@ -30,7 +31,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path("calendar/", include("stapel_calendar.urls")),
-    path("listings/", include("stapel_listings.urls")),
+    path("categories/api/", include("stapel_categories.urls")),
+    path("listings/api/", include("stapel_listings.urls")),
 ]
 ```
 

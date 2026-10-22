@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.1.6] - 2026-10-22
+
+Patch. **The preset is a booking that can publish.**
+
+### Fixed
+- `stapel_categories` is a member. Publishing a listing calls the
+  `categories.features` comm Function; without a provider every publish
+  answered 500 (`FunctionNotRegistered`).
+- `SETTINGS_DEFAULTS["STAPEL_LISTINGS"]["AUTO_APPROVE_ON_PUBLISH"] = True`.
+  stapel-listings holds a published listing at the `"pre"` moderation gate
+  until a verdict arrives, and this scenario installs no stapel-moderation,
+  so every resource stayed PENDING and was never bookable.
+- Categories and listings mount under `<mod>/api/` (they contribute only
+  `v1/`); the bare `listings/` mount served `/listings/v1/...`, which no
+  client calls.
+
+`stapel-preset-gate` in stapel-tools now holds this preset and the scaffold
+registry equal.
+
 ## [0.1.5] - 2026-10-15
 
 Packaging only. Patch: the sibling ceilings were raised to the leaf-composite

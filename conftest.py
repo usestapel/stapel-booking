@@ -16,6 +16,7 @@ def pytest_configure(config):
                 "stapel_core.django.users",
                 "stapel_core.django.projections",
                 "stapel_calendar",
+                "stapel_categories",
                 "stapel_listings",
                 "stapel_booking",
             ],

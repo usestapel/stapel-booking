@@ -44,3 +44,23 @@ def test_refusal_envelope_is_wired_in_this_harness():
     # ``stapel_core.django.exception_handler_checks`` (core 0.61.1) so the
     # test runs on this package's declared stapel-core floor.
     assert api_settings.EXCEPTION_HANDLER is stapel_exception_handler
+
+
+def test_listings_publish_has_a_category_provider():
+    """BK-1: publish calls the ``categories.features`` comm Function, so the
+    preset installs and mounts its provider; both mount at ``<mod>/api/``
+    (BK-3), the prefix the canon and every generated client call."""
+    assert "stapel_categories" in preset.INSTALLED_APPS
+    assert preset.INSTALLED_APPS.index("stapel_categories") < preset.INSTALLED_APPS.index(
+        "stapel_listings"
+    )
+    mounts = {module: prefix for prefix, module in preset.URL_INCLUDES}
+    assert mounts["stapel_categories.urls"] == "categories/api/"
+    assert mounts["stapel_listings.urls"] == "listings/api/"
+
+
+def test_a_published_resource_is_not_left_pending():
+    """BK-2: no stapel-moderation in this scenario, so nothing would ever
+    approve a listing held at listings' default "pre" gate."""
+    assert preset.SETTINGS_DEFAULTS["STAPEL_LISTINGS"]["AUTO_APPROVE_ON_PUBLISH"] is True
+    assert "stapel_moderation" not in preset.INSTALLED_APPS
