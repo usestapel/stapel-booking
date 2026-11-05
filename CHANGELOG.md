@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.7] - 2026-11-05
+
+Patch. **The composite declares the `listing` search source.**
+stapel-search ships no sources of its own, so a host that installed the
+search companion next to this composite booted with `stapel_search.W001` and
+its search page answered nothing. `stapel_booking.search_sources` now carries
+the source (`listings.search_documents` / `listings.search_export`, the
+`listing.*` invalidation signals, listings' own `INDEXED_STATUSES`) and the
+preset names it in `SETTINGS_DEFAULTS["STAPEL_SEARCH"]["SOURCES"]`
+(`search_sources.LISTING_SOURCE`). The suite installs stapel-search (the
+`all` extra) and proves a published resource is answered by `search.query`.
+
 ## [0.1.6] - 2026-10-22
 
 Patch. **The preset is a booking that can publish.**

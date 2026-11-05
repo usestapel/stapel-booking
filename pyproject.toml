@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stapel-booking"
-version = "0.1.6"
+version = "0.1.7"
 description = "Composite: bookable resources — calendar + listings"
 readme = "README.md"
 license = { text = "MIT" }
@@ -42,7 +42,9 @@ Changelog = "https://github.com/usestapel/stapel-booking/blob/main/CHANGELOG.md"
 Issues = "https://github.com/usestapel/stapel-booking/issues"
 
 [project.optional-dependencies]
-all = []
+# The companion whose source this composite declares (search_sources); the
+# suite proves the declaration against the real index.
+all = ["stapel-search>=0.18,<1.0"]
 
 [tool.setuptools]
 package-dir = {"stapel_booking" = "."}

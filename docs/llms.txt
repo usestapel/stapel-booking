@@ -1,6 +1,6 @@
-# stapel-booking 0.1.6
+# stapel-booking 0.1.7
 
-Composite preset for bookable resources (coworking, equipment rental, scheduled services): wires stapel-calendar (availability/slots) and stapel-listings (the resource) into one INSTALLED_APPS/urls/config bundle. Mounts no urls and writes no business logic of its own — the app slot is reserved for future cross-module glue (MODULE.md, preset.py).
+Composite preset for bookable resources (coworking, equipment rental, scheduled services): wires stapel-calendar (availability/slots) and stapel-listings (the resource) into one INSTALLED_APPS/urls/config bundle. Mounts no urls and writes no business logic of its own — the app slot is reserved for future cross-module glue (MODULE.md, preset.py). It declares the `listing` search source (stapel_booking.search_sources.listing_source, named by SETTINGS_DEFAULTS['STAPEL_SEARCH']['SOURCES']), so a host that installs the stapel-search companion indexes the resources instead of booting with stapel_search.W001.
 
 Contract: (no catalogued surface).
 Generated from docs/capabilities.json by `stapel-llms-txt` — do not edit; drift-gated by `make contract-check`.

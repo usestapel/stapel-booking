@@ -10,7 +10,7 @@
 [![license](https://img.shields.io/github/license/usestapel/stapel-booking)](https://github.com/usestapel/stapel-booking/blob/main/LICENSE)
 [![llms.txt](https://img.shields.io/badge/llms.txt-blue)](https://github.com/usestapel/stapel-booking/blob/main/docs/llms.txt)
 
-> Composite preset for bookable resources (coworking, equipment rental, scheduled services): wires stapel-calendar (availability/slots) and stapel-listings (the resource) into one INSTALLED_APPS/urls/config bundle. Mounts no urls and writes no business logic of its own — the app slot is reserved for future cross-module glue (MODULE.md, preset.py).
+> Composite preset for bookable resources (coworking, equipment rental, scheduled services): wires stapel-calendar (availability/slots) and stapel-listings (the resource) into one INSTALLED_APPS/urls/config bundle. Mounts no urls and writes no business logic of its own — the app slot is reserved for future cross-module glue (MODULE.md, preset.py). It declares the `listing` search source (stapel_booking.search_sources.listing_source, named by SETTINGS_DEFAULTS['STAPEL_SEARCH']['SOURCES']), so a host that installs the stapel-search companion indexes the resources instead of booting with stapel_search.W001.
 
 Part of the [Stapel framework](https://github.com/usestapel) — composable Django apps that deploy as a monolith or as microservices without changing module code.
 
@@ -24,7 +24,7 @@ pip install stapel-booking
 
 | Fact | Value |
 |---|---|
-| Version | `0.1.6` |
+| Version | `0.1.7` |
 | Python | `>=3.11` (3.11, 3.12, 3.13, 3.14) |
 | Fleet dependencies | [`stapel-calendar`](https://github.com/usestapel/stapel-calendar) · [`stapel-listings`](https://github.com/usestapel/stapel-listings) |
 
